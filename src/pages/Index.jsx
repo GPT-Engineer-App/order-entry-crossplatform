@@ -123,6 +123,7 @@ const Login = () => {
     <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
       <VStack spacing={4}>
         <Text fontSize="2xl">Login</Text>
+        <Text>Enter "admin" as username for admin access. Use any other username for sales access.</Text>
         <Input placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
         <Input placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <Button onClick={handleLogin}>Login</Button>
