@@ -59,22 +59,7 @@ const OrderProvider = ({ children }) => {
 
   useEffect(() => {
     fetchProducts();
-    fetchAccounts();
   }, []);
-
-  const fetchAccounts = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/accounts");
-      if (!response.ok) {
-        throw new Error(`Network response was not ok: ${response.statusText}`);
-      }
-      const data = await response.json();
-      setAccounts(data.map((account) => ({ id: account.Current_Code, name: account["Current Name"] })));
-    } catch (error) {
-      console.error("Error fetching accounts:", error);
-      alert("Failed to fetch accounts. Please try again later.");
-    }
-  };
 
   const fetchProducts = async () => {
     // Fetch products from ERP API
