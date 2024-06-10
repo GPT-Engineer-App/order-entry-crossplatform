@@ -59,15 +59,24 @@ const OrderProvider = ({ children }) => {
 
   useEffect(() => {
     fetchProducts();
+    fetchAccounts();
   }, []);
 
   const fetchProducts = async () => {
-    // Fetch products from ERP API
-
     setProducts([
       { id: 1, name: "Product 1", price: 10 },
       { id: 2, name: "Product 2", price: 20 },
     ]);
+  };
+
+  const fetchAccounts = async () => {
+    try {
+      const response = await fetch("http://your-api-endpoint/accounts");
+      const data = await response.json();
+      setAccounts(data);
+    } catch (error) {
+      console.error("Error fetching accounts:", error);
+    }
   };
 
   const addOrder = (order) => {
