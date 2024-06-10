@@ -43,6 +43,7 @@ const AuthProvider = ({ children }) => {
 
   const logout = () => {
     setUser(null);
+    navigate("/login");
   };
 
   return <AuthContext.Provider value={{ user, login, logout }}>{children}</AuthContext.Provider>;
