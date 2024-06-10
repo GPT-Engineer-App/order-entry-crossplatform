@@ -28,12 +28,12 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const login = (username, password) => {
-    // Implement login logic here
-    // For now, we'll just set a dummy user
-    if (username === "admin") {
+    if (username === "admin" && password === "123") {
       setUser({ username, role: "admin" });
-    } else {
+    } else if (username !== "admin" && password === "password") {
       setUser({ username, role: "sales" });
+    } else {
+      alert("Invalid credentials");
     }
   };
 
