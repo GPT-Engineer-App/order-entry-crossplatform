@@ -33,6 +33,9 @@ const AuthProvider = ({ children }) => {
     if (username === "admin" && password === "123") {
       setUser({ username, role: "admin" });
       navigate("/admin");
+    } else if (username === "Sales" && password === "123") {
+      setUser({ username, role: "sales" });
+      navigate("/sales");
     } else if (username !== "admin" && password === "password") {
       setUser({ username, role: "sales" });
       navigate("/sales");
