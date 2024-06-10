@@ -58,19 +58,9 @@ const OrderProvider = ({ children }) => {
   const [accounts, setAccounts] = useState([]);
 
   useEffect(() => {
-    // Fetch products and accounts from the ERP system
     fetchProducts();
     fetchAccounts();
   }, []);
-
-  const fetchProducts = async () => {
-    // Fetch products from ERP API
-    // For now, we'll use dummy data
-    setProducts([
-      { id: 1, name: "Product 1", price: 10 },
-      { id: 2, name: "Product 2", price: 20 },
-    ]);
-  };
 
   const fetchAccounts = async () => {
     try {
@@ -80,6 +70,15 @@ const OrderProvider = ({ children }) => {
     } catch (error) {
       console.error("Error fetching accounts:", error);
     }
+  };
+
+  const fetchProducts = async () => {
+    // Fetch products from ERP API
+
+    setProducts([
+      { id: 1, name: "Product 1", price: 10 },
+      { id: 2, name: "Product 2", price: 20 },
+    ]);
   };
 
   const addOrder = (order) => {
