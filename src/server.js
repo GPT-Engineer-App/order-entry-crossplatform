@@ -19,23 +19,24 @@ const config = {
   },
 };
 
-sql.connect(config, (err) => {
-  if (err) {
-    console.error("Database connection failed:", err);
-    return;
-  }
-  console.log("Connected to the database");
-});
+sql
+  .connect(config)
+  .then(() => {
+    console.log("Connected to the database");
 
-app.get("/accounts", async (req, res) => {
-  try {
-    const result = await sql.query`SELECT CODE AS [Current_Code], DEFINITION_ AS [Current Name], SPECODE AS [Type] FROM Lbs_db_FC..LG_202_CLCARD`;
-    res.json(result.recordset);
-  } catch (error) {
-    console.error("Error fetching accounts:", error);
-    res.status(500).send("Error fetching accounts");
-  }
-});
+    app.get("/accounts", async (req, res) => {
+      try {
+        const result = await sql.query`SELECT CODE AS [Current_Code], DEFINITION_ AS [Current Name], SPECODE AS [Type] FROM Lbs_db_FC..LG_202_CLCARD`;
+        res.json(result.recordset);
+      } catch (error) {
+        console.error("Error fetching accounts:", error);
+        res.status(500).send("Error fetching accounts");
+      }
+    });
+  })
+  .catch((err) => {
+    console.error("Database connection failed:", err);
+  });
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
