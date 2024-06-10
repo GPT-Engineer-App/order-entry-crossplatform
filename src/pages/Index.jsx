@@ -1,9 +1,7 @@
 import React, { useState, useEffect, createContext, useContext } from "react";
 import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from "react-router-dom";
 import { Container, Text, VStack, Button, Input, Select, Table, Thead, Tbody, Tr, Th, Td, IconButton, Box, HStack, Badge } from "@chakra-ui/react";
-import Navigation from "../components/Navigation";
 import { FaShoppingCart, FaCheck, FaTimes, FaEdit } from "react-icons/fa";
-import About from "./About";
 
 // Create a context for user authentication and order management
 const AuthContext = createContext();
@@ -14,12 +12,10 @@ const App = () => {
     <Router>
       <AuthProvider>
         <OrderProvider>
-          <Navigation />
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/sales" element={<SalesDashboard />} />
-            <Route path="/about" element={<About />} />
             <Route path="/" element={<Home />} />
           </Routes>
         </OrderProvider>
