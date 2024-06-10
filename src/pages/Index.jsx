@@ -73,12 +73,13 @@ const OrderProvider = ({ children }) => {
   };
 
   const fetchAccounts = async () => {
-    // Fetch accounts from ERP API
-    // For now, we'll use dummy data
-    setAccounts([
-      { id: 1, name: "Account 1" },
-      { id: 2, name: "Account 2" },
-    ]);
+    try {
+      const response = await fetch("http://localhost:5000/accounts");
+      const data = await response.json();
+      setAccounts(data.map((account) => ({ id: account.Cari_Kodu, name: account["Cari Adı"] })));
+    } catch (error) {
+      console.error("Error fetching accounts:", error);
+    }
   };
 
   const addOrder = (order) => {
