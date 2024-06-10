@@ -30,8 +30,10 @@ const AuthProvider = ({ children }) => {
   const login = (username, password) => {
     if (username === "admin" && password === "123") {
       setUser({ username, role: "admin" });
+      navigate("/admin");
     } else if (username !== "admin" && password === "password") {
       setUser({ username, role: "sales" });
+      navigate("/sales");
     } else {
       alert("Invalid credentials");
     }
@@ -85,17 +87,11 @@ const OrderProvider = ({ children }) => {
 };
 
 const Home = () => {
-  const { user, login } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user) {
-      if (user.role === "admin") {
-        navigate("/admin");
-      } else {
-        navigate("/sales");
-      }
-    } else {
+    if (!user) {
       navigate("/login");
     }
   }, [user, navigate]);
