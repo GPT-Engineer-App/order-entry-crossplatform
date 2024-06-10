@@ -64,7 +64,7 @@ const OrderProvider = ({ children }) => {
 
   const fetchAccounts = async () => {
     try {
-      const response = await fetch("http://localhost:5000/accounts");
+      const response = await fetch("http://salesgroup.kz:5000/accounts");
       if (!response.ok) {
         throw new Error(`Network response was not ok: ${response.statusText}`);
       }
