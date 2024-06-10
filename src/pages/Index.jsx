@@ -85,7 +85,7 @@ const OrderProvider = ({ children }) => {
 };
 
 const Home = () => {
-  const { user } = useContext(AuthContext);
+  const { user, login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
