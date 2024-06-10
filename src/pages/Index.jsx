@@ -65,6 +65,9 @@ const OrderProvider = ({ children }) => {
   const fetchAccounts = async () => {
     try {
       const response = await fetch("http://localhost:5000/accounts");
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
       const data = await response.json();
       setAccounts(data.map((account) => ({ id: account.Cari_Kodu, name: account["Cari Adı"] })));
     } catch (error) {
