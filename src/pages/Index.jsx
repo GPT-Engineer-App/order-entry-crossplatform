@@ -69,7 +69,7 @@ const OrderProvider = ({ children }) => {
         throw new Error("Network response was not ok");
       }
       const data = await response.json();
-      setAccounts(data.map((account) => ({ id: account.Cari_Kodu, name: account["Cari Adı"] })));
+      setAccounts(data.map((account) => ({ id: account.Current_Code, name: account["Current Name"] })));
     } catch (error) {
       console.error("Error fetching accounts:", error);
     }
