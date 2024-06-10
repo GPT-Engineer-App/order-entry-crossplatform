@@ -27,6 +27,8 @@ const App = () => {
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
+  const navigate = useNavigate();
+
   const login = (username, password) => {
     if (username === "admin" && password === "123") {
       setUser({ username, role: "admin" });
