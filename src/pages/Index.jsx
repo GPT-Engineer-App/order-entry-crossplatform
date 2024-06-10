@@ -103,9 +103,9 @@ const Home = () => {
   }, [user, navigate]);
 
   return (
-    <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
+    <Container centerContent maxW={["container.sm", "container.md"]} height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
       <VStack spacing={4}>
-        <Text fontSize="2xl">Order Entry Application</Text>
+        <Text fontSize={["xl", "2xl"]}>Order Entry Application</Text>
         <Text>Redirecting...</Text>
       </VStack>
     </Container>
@@ -122,9 +122,9 @@ const Login = () => {
   };
 
   return (
-    <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
+    <Container centerContent maxW={["container.sm", "container.md"]} height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
       <VStack spacing={4}>
-        <Text fontSize="2xl">Login</Text>
+        <Text fontSize={["xl", "2xl"]}>Login</Text>
         <Text>Enter "admin" as username for admin access. Use any other username for sales access.</Text>
         <Input placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
         <Input placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
@@ -139,9 +139,9 @@ const AdminDashboard = () => {
   const { logout } = useContext(AuthContext);
 
   return (
-    <Container maxW="container.lg">
+    <Container maxW={["container.sm", "container.md", "container.lg"]}>
       <HStack justifyContent="space-between" my={4}>
-        <Text fontSize="2xl">Admin Dashboard</Text>
+        <Text fontSize={["xl", "2xl"]}>Admin Dashboard</Text>
         <Button onClick={logout}>Logout</Button>
       </HStack>
       <Table variant="simple">
@@ -207,9 +207,9 @@ const SalesDashboard = () => {
   };
 
   return (
-    <Container maxW="container.lg">
+    <Container maxW={["container.sm", "container.md", "container.lg"]}>
       <HStack justifyContent="space-between" my={4}>
-        <Text fontSize="2xl">Sales Dashboard</Text>
+        <Text fontSize={["xl", "2xl"]}>Sales Dashboard</Text>
         <Button onClick={logout}>Logout</Button>
       </HStack>
       <VStack spacing={4}>
