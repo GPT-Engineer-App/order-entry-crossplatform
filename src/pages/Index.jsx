@@ -98,7 +98,7 @@ const Home = () => {
     } else {
       navigate("/login");
     }
-  }, [user, history]);
+  }, [user, navigate]);
 
   return (
     <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
